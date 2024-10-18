@@ -30,6 +30,24 @@ auto main(int argc, char **argv) -> int
      * More info at https://fmt.dev/latest/api.html
      */
     fmt::print("Hello, {}!\n", app.get_name());
+    fmt::print("value of argc: {}!\n", argc);
+    fmt::print("value of argv[0]: {}!\n", argv[0]);
+    fmt::print("The value of counter is: {}!\n", counter);
+
+    std::vector<unsigned int> values;
+    fmt::print("Elements in values, {}!\n", values.size());
+    values.push_back(42);
+    values.push_back(4711);
+    values.push_back(11);
+    fmt::print("Elements in values, {}!\n", values.size());
+    for(int i = 0; i < values.size(); i++)
+    {
+        fmt::print("Element at index {}: {}\n", i, values[i]);
+    }
+    for(const unsigned int & value : values)
+    {
+        fmt::print("Value of Element {}\n", value);
+    }
 
     /* INSERT YOUR CODE HERE */
 
