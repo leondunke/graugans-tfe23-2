@@ -10,17 +10,20 @@ auto main(int argc, char **argv) -> int
      * CLI11 is a command line parser to add command line options
      * More info at https://github.com/CLIUtils/CLI11#usage
      */
+
     CLI::App app{PROJECT_NAME};
+    int counter =20;
     try
     {
         app.set_version_flag("-V,--version", fmt::format("{} {}", PROJECT_VER, PROJECT_BUILD_DATE));
+        app.add_option("-C,--count", counter, "Counter ist dabei");
         app.parse(argc, argv);
     }
     catch (const CLI::ParseError &e)
     {
         return app.exit(e);
     }
-
+    fmt::print("Counter value: {}\n", counter);
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
